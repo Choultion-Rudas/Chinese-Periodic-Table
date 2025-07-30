@@ -1,6 +1,6 @@
 # LaTeX 简体中文元素周期表
 
-这可能是目前信息最详尽、排版最精致的、使用 $\LaTeX$ 排版的简体中文元素周期表。
+这可能是目前信息最详尽、排版最精致的、使用 $\rm\LaTeX$ 排版的简体中文元素周期表。
 
 ## 预览
 
@@ -30,7 +30,7 @@
 
 ## 致谢
 
-这个项目的完成，必须感谢 [**文源字体**](https://github.com/takushun-wu/WenYuanFonts) 的开发者 `takushun-wu`。文源字体支持显示所有元素的中文名。编译前必须安装此字体。
+这个项目的完成，必须感谢 [**文源字体**](https://github.com/takushun-wu/WenYuanFonts) 的开发者 takushun-wu。文源字体支持显示所有元素的中文名。编译前必须安装此字体。
 
 本项目受到了 [PaNDanese/periodic-table](https://github.com/PaNDanese/periodic-table) 的启发。本项目基于其早期版本的代码开发。在此，也对原作者 [Ivan Griffin](https://github.com/griffini) 和 [Paul Danese](https://github.com/PaNDanese) 的开创性工作表示感谢。
 
