@@ -1,0 +1,312 @@
+%% Chinese-Periodic-Table.tex
+%% Copyright 2025 Choultion Rudas
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions of LaTeX
+% version 2008 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Choultion Rudas.
+%
+% This work consists of the file Chinese-Periodic-Table.tex
+% and the derived file Chinese-Periodic-Table.pdf.
+
+\documentclass[9pt, titlepage=false]{ctexart}
+\usepackage[a4paper, scale=0.9, landscape]{geometry}
+\usepackage{tikz, hyperref, xpinyin, calc, color, graphicx, xstring, scalerel}
+\xpinyinsetup{ratio=0.4}
+\usetikzlibrary{shapes}
+\setCJKmainfont{文源宋体}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\newcommand{\AutoBracket}[1]{%
+\IfBeginWith{#1}{[}{%
+\raisebox{0.3ex}{\scalebox{1}[0.8]{[}}%
+\StrBetween{#1}{[}{]}%
+\raisebox{0.3ex}{\scalebox{1}[0.8]{]}}%
+}{#1}%
+}
+
+\newcommand{\Element}[6]{
+	\begin{minipage}{2.3cm}
+		\centering
+		\vspace{1ex}
+		{\fontsize{13}{13}\selectfont\smash{\textbf{#1}}}\hfill
+		\raisebox{0.25ex}{\fontsize{10}{10}\selectfont\smash{\AutoBracket{#2}}}\hfill
+		{\fontsize{13}{13}\selectfont\smash{\textbf{#3}}}
+
+		\vspace{0.1ex}
+		{\huge\textbf{#4}}
+
+		\vspace{-1ex}
+		\smash{#5}
+
+		\vspace{-1.2ex}
+		{\fontsize{6.8}{6.8}\selectfont\smash{$\mathrm{#6}$}}
+	\end{minipage}
+}
+
+\vfill
+\centering
+
+\begin{tikzpicture}[scale=0.6, transform shape]
+
+	\tikzstyle{Element} = [draw=none, minimum width=2.4cm, minimum height=2.4cm, node distance=2.4cm, inner sep=0pt, outer sep=0pt]
+	\tikzstyle{Offsetter} = [draw=none, minimum width=2.4cm, minimum height=2.4cm, node distance=2.4cm, inner sep=0pt, outer sep=0pt]
+	\tikzstyle{TitleLabel} = [font={\fontsize{30}{30}\selectfont\bfseries}]
+	\tikzstyle{PeriodLabel} = [font={\LARGE}, node distance=2.0cm]
+	\tikzstyle{GroupLabel} = [font={\LARGE}, node distance=2.0cm]
+
+	% Group 1 - IA
+	\node[name=Blank1, Offsetter] {};
+	\node[name=Blank2, below of=Blank1, Offsetter] {};
+	\node[name=H, below of=Blank2, Element] {\Element{1}{1.008}{H}{\xpinyin{氢}{\vphantom{ǜ}qīng}}{Hydrogen}{1s^1}};
+	\node[name=Li, below of=H, Element] {\Element{3}{6.941}{Li}{\xpinyin{锂}{\vphantom{ǜ}lǐ}}{Lithium}{[He] 2s^1}};
+	\node[name=Na, below of=Li, Element] {\Element{11}{22.99}{Na}{\xpinyin{钠}{\vphantom{ǜ}nà}}{Sodium}{[Ne] 3s^1}};
+	\node[name=K, below of=Na, Element] {\Element{19}{39.10}{K}{\xpinyin{钾}{\vphantom{ǜ}jiǎ}}{Potassium}{[Ar] 4s^1}};
+	\node[name=Rb, below of=K, Element] {\Element{37}{85.47}{Rb}{\xpinyin{铷}{\vphantom{ǜ}rú}}{Rubidium}{[Kr] 5s^1}};
+	\node[name=Cs, below of=Rb, Element] {\Element{55}{132.9}{Cs}{\xpinyin{铯}{\vphantom{ǜ}sè}}{Caesium}{[Xe] 6s^1}};
+	\node[name=Fr, below of=Cs, Element] {\Element{87}{[223]}{Fr}{\xpinyin{钫}{\vphantom{ǜ}fāng}}{Francium}{[Rn] 7s^1}};
+
+	% Group 2 - IIA
+	\node[name=Be, right of=Li, Element] {\Element{4}{9.012}{Be}{\xpinyin{铍}{\vphantom{ǜ}pí}}{Beryllium}{[He] 2s^2}};
+	\node[name=Mg, below of=Be, Element] {\Element{12}{24.31}{Mg}{\xpinyin{镁}{\vphantom{ǜ}měi}}{Magnesium}{[Ne] 3s^2}};
+	\node[name=Ca, below of=Mg, Element] {\Element{20}{40.08}{Ca}{\xpinyin{钙}{\vphantom{ǜ}gài}}{Calcium}{[Ar] 4s^2}};
+	\node[name=Sr, below of=Ca, Element] {\Element{38}{87.62}{Sr}{\xpinyin{锶}{\vphantom{ǜ}sī}}{Strontium}{[Kr] 5s^2}};
+	\node[name=Ba, below of=Sr, Element] {\Element{56}{137.3}{Ba}{\xpinyin{钡}{\vphantom{ǜ}bèi}}{Barium}{[Xe] 6s^2}};
+	\node[name=Ra, below of=Ba, Element] {\Element{88}{[226]}{Ra}{\xpinyin{镭}{\vphantom{ǜ}léi}}{Radium}{[Rn] 7s^2}};
+
+	% Group 3 - IIIB
+	\node[name=Sc, right of=Ca, Element] {\Element{21}{44.96}{Sc}{\xpinyin{钪}{\vphantom{ǜ}kàng}}{Scandium}{[Ar] 3d^1 4s^2}};
+	\node[name=Y, below of=Sc, Element] {\Element{39}{88.91}{Y}{\xpinyin{钇}{\vphantom{ǜ}yǐ}}{Yttrium}{[Kr] 4d^1 5s^2}};
+	\node[name=LaLu, below of=Y, Element] {\Element{\normalsize 57-71}{}{\normalsize La-Lu}{\xpinyin{镧系}{\vphantom{ǜ}}}{Lanthanoids}{}};
+	\node[name=AcLr, below of=LaLu, Element] {\Element{\normalsize 89-103}{}{\normalsize Ac-Lr}{\xpinyin{锕系}{\vphantom{ǜ}}}{Actinoids}{}};
+
+	% Group 4 - IVB
+	\node[name=Ti, right of=Sc, Element] {\Element{22}{47.87}{Ti}{\xpinyin{钛}{\vphantom{ǜ}tài}}{Titanium}{[Ar] 3d^2 4s^2}};
+	\node[name=Zr, below of=Ti, Element] {\Element{40}{91.22}{Zr}{\xpinyin{锆}{\vphantom{ǜ}gào}}{Zirconium}{[Kr] 4d^2 5s^2}};
+	\node[name=Hf, below of=Zr, Element] {\Element{72}{178.5}{Hf}{\xpinyin{铪}{\vphantom{ǜ}hā}}{Hafnium}{[Xe] 4f^{1\mkern-1mu4} 5d^2 6s^2}};
+	\node[name=Rf, below of=Hf, Element] {\Element{104}{[267]}{Rf}{\xpinyin{𬬻}{\vphantom{ǜ}lú}}{Rutherfordium}{[Rn] 5f^{1\mkern-1mu4} 6d^2 7s^2}};
+
+	% Group 5 - VB
+	\node[name=V, right of=Ti, Element] {\Element{23}{50.94}{V}{\xpinyin{钒}{\vphantom{ǜ}fán}}{Vanadium}{[Ar] 3d^3 4s^2}};
+	\node[name=Nb, below of=V, Element] {\Element{41}{92.91}{Nb}{\xpinyin{铌}{\vphantom{ǜ}ní}}{Niobium}{[Kr] 4d^4 5s^1}};
+	\node[name=Ta, below of=Nb, Element] {\Element{73}{180.9}{Ta}{\xpinyin{钽}{\vphantom{ǜ}tǎn}}{Tantalum}{[Xe] 4f^{1\mkern-1mu4} 5d^3 6s^2}};
+	\node[name=Db, below of=Ta, Element] {\Element{105}{[268]}{Db}{\xpinyin{𬭊}{\vphantom{ǜ}dù}}{Dubnium}{[Rn] 5f^{1\mkern-1mu4}6 d^3 7s^2}};
+
+	% Group 6 - VIB
+	\node[name=Cr, right of=V, Element] {\Element{24}{52.00}{Cr}{\xpinyin{铬}{\vphantom{ǜ}gè}}{Chromium}{[Ar] 3d^5 4s^1}};
+	\node[name=Mo, below of=Cr, Element] {\Element{42}{95.96}{Mo}{\xpinyin{钼}{\vphantom{ǜ}mù}}{Molybdenum}{[Kr] 4d^5 5s^1}};
+	\node[name=W, below of=Mo, Element] {\Element{74}{183.8}{W}{\xpinyin{钨}{\vphantom{ǜ}wū}}{Tungsten}{[Xe] 4f^{1\mkern-1mu4} 5d^4 6s^2}};
+	\node[name=Sg, below of=W, Element] {\Element{106}{[269]}{Sg}{\xpinyin{𬭳}{\vphantom{ǜ}xǐ}}{Seaborgium}{[Rn] 5f^{1\mkern-1mu4} 6d^4 7s^2}};
+
+	% Group 7 - VIIB
+	\node[name=Mn, right of=Cr, Element] {\Element{25}{54.94}{Mn}{\xpinyin{锰}{\vphantom{ǜ}měng}}{Manganese}{[Ar] 3d^5 4s^2}};
+	\node[name=Tc, below of=Mn, Element] {\Element{43}{[97]}{Tc}{\xpinyin{锝}{\vphantom{ǜ}dé}}{Technetium}{[Kr] 4d^5 5s^2}};
+	\node[name=Re, below of=Tc, Element] {\Element{75}{186.2}{Re}{\xpinyin{铼}{\vphantom{ǜ}lái}}{Rhenium}{[Xe] 4f^{1\mkern-1mu4} 5d^5 6s^2}};
+	\node[name=Bh, below of=Re, Element] {\Element{107}{[270]}{Bh}{\xpinyin{𬭛}{\vphantom{ǜ}bō}}{Bohrium}{[Rn] 5f^{1\mkern-1mu4} 6d^5 7s^2}};
+
+	% Group 8 - VIII
+	\node[name=Fe, right of=Mn, Element] {\Element{26}{55.85}{Fe}{\xpinyin{铁}{\vphantom{ǜ}tiě}}{Iron}{[Ar] 3d^6 4s^2}};
+	\node[name=Ru, below of=Fe, Element] {\Element{44}{101.1}{Ru}{\xpinyin{钌}{\vphantom{ǜ}liǎo}}{Ruthenium}{[Kr] 4d^7 5s^1}};
+	\node[name=Os, below of=Ru, Element] {\Element{76}{190.2}{Os}{\xpinyin{锇}{\vphantom{ǜ}é}}{Osmium}{[Xe] 4f^{1\mkern-1mu4} 5d^6 6s^2}};
+	\node[name=Hs, below of=Os, Element] {\Element{108}{[269]}{Hs}{\xpinyin{𬭶}{\vphantom{ǜ}hēi}}{Hassium}{[Rn] 5f^{1\mkern-1mu4} 6d^6 7s^2}};
+
+	% Group 9 - VIII
+	\node[name=Co, right of=Fe, Element] {\Element{27}{58.93}{Co}{\xpinyin{钴}{\vphantom{ǜ}gǔ}}{Cobalt}{[Ar] 3d^7 4s^2}};
+	\node[name=Rh, below of=Co, Element] {\Element{45}{102.9}{Rh}{\xpinyin{铑}{\vphantom{ǜ}lǎo}}{Rhodium}{[Kr] 4d^8 5s^1}};
+	\node[name=Ir, below of=Rh, Element] {\Element{77}{192.2}{Ir}{\xpinyin{铱}{\vphantom{ǜ}yī}}{Iridium}{[Xe] 4f^{1\mkern-1mu4} 5d^7 6s^2}};
+	\node[name=Mt, below of=Ir, Element] {\Element{109}{[277]}{Mt}{\xpinyin{鿏}{\vphantom{ǜ}mài}}{Meitnerium}{[Rn] 5f^{1\mkern-1mu4} 6d^7 7s^2}};
+
+	% Group 10 - VIII
+	\node[name=Ni, right of=Co, Element] {\Element{28}{58.69}{Ni}{\xpinyin{镍}{\vphantom{ǜ}niè}}{Nickel}{[Ar] 3d^8 4s^2}};
+	\node[name=Pd, below of=Ni, Element] {\Element{46}{106.4}{Pd}{\xpinyin{钯}{\vphantom{ǜ}bǎ}}{Palladium}{[Kr] 4d^{1\mkern-1mu0}}};
+	\node[name=Pt, below of=Pd, Element] {\Element{78}{195.1}{Pt}{\xpinyin{铂}{\vphantom{ǜ}bó}}{Platinum}{[Xe] 4f^{1\mkern-1mu4} 5d^9 6s^1}};
+	\node[name=Ds, below of=Pt, Element] {\Element{110}{[281]}{Ds}{\xpinyin{𫟼}{\vphantom{ǜ}dá}}{Darmstadtium}{[Rn] 5f^{1\mkern-1mu4} 6d^9 7s^1}};
+
+	% Group 11 - IB
+	\node[name=Cu, right of=Ni, Element] {\Element{29}{63.55}{Cu}{\xpinyin{铜}{\vphantom{ǜ}tóng}}{Copper}{[Ar] 3d^{1\mkern-1mu0} 4s^1}};
+	\node[name=Ag, below of=Cu, Element] {\Element{47}{107.9}{Ag}{\xpinyin{银}{\vphantom{ǜ}yín}}{Silver}{[Kr] 4d^{1\mkern-1mu0} 5s^1}};
+	\node[name=Au, below of=Ag, Element] {\Element{79}{197.0}{Au}{\xpinyin{金}{\vphantom{ǜ}jīn}}{Gold}{[Xe] 4f^{1\mkern-1mu4} 5d^{1\mkern-1mu0} 6s^1}};
+	\node[name=Rg, below of=Au, Element] {\Element{111}{[282]}{Rg}{\xpinyin{𬬭}{\vphantom{ǜ}lún}}{Roentgenium}{[Rn] 5f^{1\mkern-1mu4} 6d^9 7s^2}};
+
+	% Group 12 - IIB
+	\node[name=Zn, right of=Cu, Element] {\Element{30}{65.38}{Zn}{\xpinyin{锌}{\vphantom{ǜ}xīn}}{Zinc}{[Ar] 3d^{1\mkern-1mu0} 4s^2}};
+	\node[name=Cd, below of=Zn, Element] {\Element{48}{112.4}{Cd}{\xpinyin{镉}{\vphantom{ǜ}gé}}{Cadmium}{[Kr] 4d^{1\mkern-1mu0} 5s^2}};
+	\node[name=Hg, below of=Cd, Element] {\Element{80}{200.6}{Hg}{\xpinyin{汞}{\vphantom{ǜ}gǒng}}{Mercury}{[Xe] 4f^{1\mkern-1mu4} 5d^{1\mkern-1mu0} 6s^2}};
+	\node[name=Cn, below of=Hg, Element] {\Element{112}{[285]}{Cn}{\xpinyin{鿔}{\vphantom{ǜ}gē}}{Copernicium}{[Rn] 5f^{1\mkern-1mu4} 6d^{1\mkern-1mu0} 7s^2}};
+
+	% Group 13 - IIIA
+	\node[name=Ga, right of=Zn, Element] {\Element{31}{69.72}{Ga}{\xpinyin{镓}{\vphantom{ǜ}jiā}}{Gallium}{[Ar] 3d^{1\mkern-1mu0} 4s^2 4p^1}};
+	\node[name=Al, above of=Ga, Element] {\Element{13}{26.98}{Al}{\xpinyin{铝}{\vphantom{ǜ}lǚ}}{Aluminium}{[Ne] 3s^2 3p^1}};
+	\node[name=B, above of=Al, Element] {\Element{5}{10.81}{B}{\xpinyin{硼}{\vphantom{ǜ}péng}}{Boron}{[He] 2s^2 2p^1}};
+	\node[name=In, below of=Ga, Element] {\Element{49}{114.8}{In}{\xpinyin{铟}{\vphantom{ǜ}yīn}}{Indium}{[Kr] 4d^{1\mkern-1mu0} 5s^2 5p^1}};
+	\node[name=Tl, below of=In, Element] {\Element{81}{204.4}{Tl}{\xpinyin{铊}{\vphantom{ǜ}tā}}{Thallium}{[Xe] 4f^{1\mkern-1mu4} 5d^{1\mkern-1mu0} 6s^2 6p^1}};
+	\node[name=Nh, below of=Tl, Element] {\Element{113}{[286]}{Nh}{\xpinyin{鿭}{\vphantom{ǜ}nǐ}}{Nihonium}{[Rn] 5f^{1\mkern-1mu4} 6d^{1\mkern-1mu0} 7s^2 7p^1}};
+
+	% Group 14 - IVA
+	\node[name=C, right of=B, Element] {\Element{6}{12.01}{C}{\xpinyin{碳}{\vphantom{ǜ}tàn}}{Carbon}{[He] 2s^2 2p^2}};
+	\node[name=Si, below of=C, Element] {\Element{14}{28.09}{Si}{\xpinyin{硅}{\vphantom{ǜ}guī}}{Silicon}{[Ne] 3s^2 3p^2}};
+	\node[name=Ge, below of=Si, Element] {\Element{32}{72.63}{Ge}{\xpinyin{锗}{\vphantom{ǜ}zhě}}{Germanium}{[Ar] 3d^{1\mkern-1mu0} 4s^2 4p^2}};
+	\node[name=Sn, below of=Ge, Element] {\Element{50}{118.7}{Sn}{\xpinyin{锡}{\vphantom{ǜ}xī}}{Tin}{[Kr] 4d^{1\mkern-1mu0} 5s^2 5p^2}};
+	\node[name=Pb, below of=Sn, Element] {\Element{82}{207.2}{Pb}{\xpinyin{铅}{\vphantom{ǜ}qiān}}{Lead}{[Xe] 4f^{1\mkern-1mu4} 5d^{1\mkern-1mu0} 6s^2 6p^2}};
+	\node[name=Fl, below of=Pb, Element] {\Element{114}{[289]}{Fl}{\xpinyin{𫓧}{\vphantom{ǜ}fū}}{Flerovium}{[Rn] 5f^{1\mkern-1mu4} 6d^{1\mkern-1mu0} 7s^2 7p^2}};
+
+	% Group 15 - VA
+	\node[name=N, right of=C, Element] {\Element{7}{14.01}{N}{\xpinyin{氮}{\vphantom{ǜ}dàn}}{Nitrogen}{[He] 2s^2 2p^3}};
+	\node[name=P, below of=N, Element] {\Element{15}{30.97}{P}{\xpinyin{磷}{\vphantom{ǜ}lín}}{Phosphorus}{[Ne] 3s^2 3p^3}};
+	\node[name=As, below of=P, Element] {\Element{33}{74.92}{As}{\xpinyin{砷}{\vphantom{ǜ}shēn}}{Arsenic}{[Ar] 3d^{1\mkern-1mu0} 4s^2 4p^3}};
+	\node[name=Sb, below of=As, Element] {\Element{51}{121.8}{Sb}{\xpinyin{锑}{\vphantom{ǜ}tī}}{Antimony}{[Kr] 4d^{1\mkern-1mu0} 5s^2 5p^3}};
+	\node[name=Bi, below of=Sb, Element] {\Element{83}{209.0}{Bi}{\xpinyin{铋}{\vphantom{ǜ}bì}}{Bismuth}{[Xe] 4f^{1\mkern-1mu4} 5d^{1\mkern-1mu0} 6s^2 6p^3}};
+	\node[name=Mc, below of=Bi, Element] {\Element{115}{[290]}{Mc}{\xpinyin{镆}{\vphantom{ǜ}mò}}{Moscovium}{[Rn] 5f^{1\mkern-1mu4} 6d^{1\mkern-1mu0} 7s^2 7p^3}};
+
+	% Group 16 - VIA
+	\node[name=O, right of=N, Element] {\Element{8}{16.00}{O}{\xpinyin{氧}{\vphantom{ǜ}yǎng}}{Oxygen}{[He] 2s^2 2p^4}};
+	\node[name=S, below of=O, Element] {\Element{16}{32.07}{S}{\xpinyin{硫}{\vphantom{ǜ}liú}}{Sulfur}{[Ne] 3s^2 3p^4}};
+	\node[name=Se, below of=S, Element] {\Element{34}{78.97}{Se}{\xpinyin{硒}{\vphantom{ǜ}xī}}{Selenium}{[Ar] 3d^{1\mkern-1mu0} 4s^2 4p^4}};
+	\node[name=Te, below of=Se, Element] {\Element{52}{127.6}{Te}{\xpinyin{碲}{\vphantom{ǜ}dì}}{Tellurium}{[Kr] 4d^{1\mkern-1mu0} 5s^2 5p^4}};
+	\node[name=Po, below of=Te, Element] {\Element{84}{[209]}{Po}{\xpinyin{钋}{\vphantom{ǜ}pō}}{Polonium}{[Xe] 4f^{1\mkern-1mu4} 5d^{1\mkern-1mu0} 6s^2 6p^4}};
+	\node[name=Lv, below of=Po, Element] {\Element{116}{[293]}{Lv}{\xpinyin{𫟷}{\vphantom{ǜ}lì}}{Livermorium}{[Rn] 5f^{1\mkern-1mu4} 6d^{1\mkern-1mu0} 7s^2 7p^4}};
+
+	% Group 17 - VIIA
+	\node[name=F, right of=O, Element] {\Element{9}{19.00}{F}{\xpinyin{氟}{\vphantom{ǜ}fú}}{Fluorine}{[He] 2s^2 2p^5}};
+	\node[name=Cl, below of=F, Element] {\Element{17}{35.45}{Cl}{\xpinyin{氯}{\vphantom{ǜ}lǜ}}{Chlorine}{[Ne] 3s^2 3p^5}};
+	\node[name=Br, below of=Cl, Element] {\Element{35}{79.90}{Br}{\xpinyin{溴}{\vphantom{ǜ}xiù}}{Bromine}{[Ar] 3d^{1\mkern-1mu0} 4s^2 4p^5}};
+	\node[name=I, below of=Br, Element] {\Element{53}{126.9}{I}{\xpinyin{碘}{\vphantom{ǜ}diǎn}}{Iodine}{[Kr] 4d^{1\mkern-1mu0} 5s^2 5p^5}};
+	\node[name=At, below of=I, Element] {\Element{85}{[210]}{At}{\xpinyin{砹}{\vphantom{ǜ}ài}}{Astatine}{[Xe] 4f^{1\mkern-1mu4} 5d^{1\mkern-1mu0} 6s^2 6p^5}};
+	\node[name=Ts, below of=At, Element] {\Element{117}{[294]}{Ts}{\xpinyin{鿬}{\vphantom{ǜ}tián}}{Tennessine}{[Rn] 5f^{1\mkern-1mu4} 6d^{1\mkern-1mu0} 7s^2 7p^5}};
+
+	% Group 18 - 0
+	\node[name=Ne, right of=F, Element] {\Element{10}{20.18}{Ne}{\xpinyin{氖}{\vphantom{ǜ}nǎi}}{Neon}{[He] 2s^2 2p^6}};
+	\node[name=He, above of=Ne, Element] {\Element{2}{4.003}{He}{\xpinyin{氦}{\vphantom{ǜ}hài}}{Helium}     {1s^2}};
+	\node[name=Ar, below of=Ne, Element] {\Element{18}{39.95}{Ar}{\xpinyin{氩}{\vphantom{ǜ}yà}}{Argon}{[Ne] 3s^2 3p^6}};
+	\node[name=Kr, below of=Ar, Element] {\Element{36}{83.80}{Kr}{\xpinyin{氪}{\vphantom{ǜ}kè}}{Krypton}{[Ar] 3d^{1\mkern-1mu0} 4s^2 4p^6}};
+	\node[name=Xe, below of=Kr, Element] {\Element{54}{131.3}{Xe}{\xpinyin{氙}{\vphantom{ǜ}xiān}}{Xenon}{[Kr] 4d^{1\mkern-1mu0} 5s^2 5p^6}};
+	\node[name=Rn, below of=Xe, Element] {\Element{86}{[222]}{Rn}{\xpinyin{氡}{\vphantom{ǜ}dōng}}{Radon}{[Xe] 4f^{1\mkern-1mu4} 5d^{1\mkern-1mu0} 6s^2 6p^6}};
+	\node[name=Og, below of=Rn, Element] {\Element{118}{[294]}{Og}{\xpinyin{鿫}{\vphantom{ǜ}ào}}{Oganesson}{[Rn] 5f^{1\mkern-1mu4} 6d^{1\mkern-1mu0} 7s^2 7p^6}};
+
+	% Period
+	\node[name=Period1, left of=H, PeriodLabel]  {\textbf{1}};
+	\node[name=Period2, left of=Li, PeriodLabel] {\textbf{2}};
+	\node[name=Period3, left of=Na, PeriodLabel] {\textbf{3}};
+	\node[name=Period4, left of=K, PeriodLabel]  {\textbf{4}};
+	\node[name=Period5, left of=Rb, PeriodLabel] {\textbf{5}};
+	\node[name=Period6, left of=Cs, PeriodLabel] {\textbf{6}};
+	\node[name=Period7, left of=Fr, PeriodLabel] {\textbf{7}};
+
+	% Group
+	\node[name=Group1, above of=H, GroupLabel]   {{\fontsize{12}{12}\selectfont 1} \hfill \textbf{I\,A}};
+	\node[name=Group2, above of=Be, GroupLabel]  {{\fontsize{12}{12}\selectfont 2} \hfill \textbf{II\,A}};
+	\node[name=Group3, above of=Sc, GroupLabel]  {{\fontsize{12}{12}\selectfont 3} \hfill \textbf{III\,A}};
+	\node[name=Group4, above of=Ti, GroupLabel]  {{\fontsize{12}{12}\selectfont 4} \hfill \textbf{IV\,B}};
+	\node[name=Group5, above of=V, GroupLabel]   {{\fontsize{12}{12}\selectfont 5} \hfill \textbf{V\,B}};
+	\node[name=Group6, above of=Cr, GroupLabel]  {{\fontsize{12}{12}\selectfont 6} \hfill \textbf{VI\,B}};
+	\node[name=Group7, above of=Mn, GroupLabel]  {{\fontsize{12}{12}\selectfont 7} \hfill \textbf{VII\,B}};
+	\node[name=Group8, above of=Fe, GroupLabel]  {{\fontsize{12}{12}\selectfont 8} \hfill \textbf{VIII}};
+	\node[name=Group9, above of=Co, GroupLabel]  {{\fontsize{12}{12}\selectfont 9} \hfill \textbf{VIII}};
+	\node[name=Group10, above of=Ni, GroupLabel] {{\fontsize{12}{12}\selectfont 10} \hfill \textbf{VIII}};
+	\node[name=Group11, above of=Cu, GroupLabel] {{\fontsize{12}{12}\selectfont 11} \hfill \textbf{I\,B}};
+	\node[name=Group12, above of=Zn, GroupLabel] {{\fontsize{12}{12}\selectfont 12} \hfill \textbf{II\,B}};
+	\node[name=Group13, above of=B, GroupLabel]  {{\fontsize{12}{12}\selectfont 13} \hfill \textbf{III\,A}};
+	\node[name=Group14, above of=C, GroupLabel]  {{\fontsize{12}{12}\selectfont 14} \hfill \textbf{IV\,A}};
+	\node[name=Group15, above of=N, GroupLabel]  {{\fontsize{12}{12}\selectfont 15} \hfill \textbf{V\,A}};
+	\node[name=Group16, above of=O, GroupLabel]  {{\fontsize{12}{12}\selectfont 16} \hfill \textbf{VI\,A}};
+	\node[name=Group17, above of=F, GroupLabel]  {{\fontsize{12}{12}\selectfont 17} \hfill \textbf{VII\,A}};
+	\node[name=Group18, above of=He, GroupLabel] {{\fontsize{12}{12}\selectfont 18} \hfill \textbf{0}};
+
+	% Lanthanoids
+	\node[name=La, below of=AcLr, Element, yshift=-0.8cm] {\Element{57}{138.9}{La}{\xpinyin{镧}{\vphantom{ǜ}lán}}{Lanthanum}{[Xe] 5d^1 6s^2}};
+	\node[name=Ce, right of=La, Element] {\Element{58}{140.1}{Ce}{\xpinyin{铈}{\vphantom{ǜ}shì}}{Cerium}{[Xe] 4f^1 5d^1 6s^2}};
+	\node[name=Pr, right of=Ce, Element] {\Element{59}{140.9}{Pr}{\xpinyin{镨}{\vphantom{ǜ}pǔ}}{Praseodymium}{[Xe] 4f^3 6s^2}};
+	\node[name=Nd, right of=Pr, Element] {\Element{60}{144.2}{Nd}{\xpinyin{钕}{\vphantom{ǜ}nǚ}}{Neodymium}{[Xe] 4f^4 6s^2}};
+	\node[name=Pm, right of=Nd, Element] {\Element{61}{[145]}{Pm}{\xpinyin{钷}{\vphantom{ǜ}pǒ}}{Promethium}{[Xe] 4f^5 6s^2}};
+	\node[name=Sm, right of=Pm, Element] {\Element{62}{150.4}{Sm}{\xpinyin{钐}{\vphantom{ǜ}shān}}{Samarium}{[Xe] 4f^6 6s^2}};
+	\node[name=Eu, right of=Sm, Element] {\Element{63}{152.0}{Eu}{\xpinyin{铕}{\vphantom{ǜ}yǒu}}{Europium}{[Xe] 4f^7 6s^2}};
+	\node[name=Gd, right of=Eu, Element] {\Element{64}{157.3}{Gd}{\xpinyin{钆}{\vphantom{ǜ}gá}}{Gadolinium}{[Xe] 4f^7 5d^1 6s^2}};
+	\node[name=Tb, right of=Gd, Element] {\Element{65}{158.9}{Tb}{\xpinyin{铽}{\vphantom{ǜ}tè}}{Terbium}{[Xe] 4f^9 6s^2}};
+	\node[name=Dy, right of=Tb, Element] {\Element{66}{162.5}{Dy}{\xpinyin{镝}{\vphantom{ǜ}dī}}{Dysprosium}{[Xe] 4f^{1\mkern-1mu0} 6s^2}};
+	\node[name=Ho, right of=Dy, Element] {\Element{67}{164.9}{Ho}{\xpinyin{钬}{\vphantom{ǜ}huǒ}}{Holmium}{[Xe] 4f^{1\mkern-1mu1} 6s^2}};
+	\node[name=Er, right of=Ho, Element] {\Element{68}{167.3}{Er}{\xpinyin{铒}{\vphantom{ǜ}ěr}}{Erbium}{[Xe] 4f^{1\mkern-1mu2} 6s^2}};
+	\node[name=Tm, right of=Er, Element] {\Element{69}{168.9}{Tm}{\xpinyin{铥}{\vphantom{ǜ}diū}}{Thulium}{[Xe] 4f^{1\mkern-1mu3} 6s^2}};
+	\node[name=Yb, right of=Tm, Element] {\Element{70}{173.1}{Yb}{\xpinyin{镱}{\vphantom{ǜ}yì}}{Ytterbium}{[Xe] 4f^{1\mkern-1mu4} 6s^2}};
+	\node[name=Lu, right of=Yb, Element] {\Element{71}{175.0}{Lu}{\xpinyin{镥}{\vphantom{ǜ}lǔ}}{Lutetium}{[Xe] 4f^{1\mkern-1mu4} 5d^1 6s^2}};
+
+	% Actinoids
+	\node[name=Ac, below of=La, Element] {\Element{89}{[227]}{Ac}{\xpinyin{锕}{\vphantom{ǜ}ā}}{Actinium}{[Rn] 6d^1 7s^2}};
+	\node[name=Th, right of=Ac, Element] {\Element{90}{232.0}{Th}{\xpinyin{钍}{\vphantom{ǜ}tǔ}}{Thorium}{[Rn] 6d^2 7s^2}};
+	\node[name=Pa, right of=Th, Element] {\Element{91}{231.0}{Pa}{\xpinyin{镤}{\vphantom{ǜ}pú}}{Protactinium}{[Rn] 5f^2 6d^1 7s^2}};
+	\node[name=U, right of=Pa, Element] {\Element{92}{238.0}{U}{\xpinyin{铀}{\vphantom{ǜ}yóu}}{Uranium}{[Rn] 5f^3 6d^1 7s^2}};
+	\node[name=Np, right of=U, Element] {\Element{93}{[237]}{Np}{\xpinyin{镎}{\vphantom{ǜ}ná}}{Neptunium}{[Rn] 5f^4 6d^1 7s^2}};
+	\node[name=Pu, right of=Np, Element] {\Element{94}{[244]}{Pu}{\xpinyin{钚}{\vphantom{ǜ}bù}}{Plutonium}{[Rn] 5f^6 7s^2}};
+	\node[name=Am, right of=Pu, Element] {\Element{95}{[243]}{Am}{\xpinyin{镅}{\vphantom{ǜ}méi}}{Americium}{[Rn] 5f^7 7s^2}};
+	\node[name=Cm, right of=Am, Element] {\Element{96}{[247]}{Cm}{\xpinyin{锔}{\vphantom{ǜ}jú}}{Curium}{[Rn] 5f^7 6d^1 7s^2}};
+	\node[name=Bk, right of=Cm, Element] {\Element{97}{[247]}{Bk}{\xpinyin{锫}{\vphantom{ǜ}péi}}{Berkelium}{[Rn] 5f^9 7s^2}};
+	\node[name=Cf, right of=Bk, Element] {\Element{98}{[251]}{Cf}{\xpinyin{锎}{\vphantom{ǜ}kāi}}{Californium}{[Rn] 5f^{1\mkern-1mu0} 7s^2}};
+	\node[name=Es, right of=Cf, Element] {\Element{99}{[252]}{Es}{\xpinyin{锿}{\vphantom{ǜ}āi}}{Einsteinium}{[Rn] 5f^{1\mkern-1mu1} 7s^2}};
+	\node[name=Fm, right of=Es, Element] {\Element{100}{[257]}{Fm}{\xpinyin{镄}{\vphantom{ǜ}fèi}}{Fermium}{[Rn] 5f^{1\mkern-1mu2} 7s^2}};
+	\node[name=Md, right of=Fm, Element] {\Element{101}{[258]}{Md}{\xpinyin{钔}{\vphantom{ǜ}mén}}{Mendelevium}{[Rn] 5f^{1\mkern-1mu3} 7s^2}};
+	\node[name=No, right of=Md, Element] {\Element{102}{[259]}{No}{\xpinyin{锘}{\vphantom{ǜ}nuò}}{Nobelium}{[Rn] 5f^{1\mkern-1mu4} 7s^2}};
+	\node[name=Lr, right of=No, Element] {\Element{103}{[262]}{Lr}{\xpinyin{铹}{\vphantom{ǜ}láo}}{Lawrencium}{[Rn] 5f^{1\mkern-1mu4} 7s^2 7p^1}};
+	\node[name=Lanthanoids, left of=La, Offsetter] {\huge 镧系};
+	\node[name=Actinoids, below of=Lanthanoids, Offsetter] {\huge 锕系};
+
+	\begin{scope}[every path/.style={line width=0.4pt}]
+		\draw (Fr.south east) -- (H.north east) -- (H.north west) -- (Fr.south west) -- (Og.south east) -- (He.north east) -- (He.north west) -- (Og.south west);
+		\draw (Li.north west) -- (Be.north east) -- (Ra.south east);
+		\draw (Ne.north east) -- (B.north west) -- (Nh.south west);
+		\draw (Na.north west) -- (Mg.north east);
+		\draw (Al.north west) -- (Ar.north east);
+		
+		\draw (K.north west) -- (Kr.north east);
+		\draw (Rb.north west) -- (Xe.north east);
+		\draw (Cs.north west) -- (Rn.north east);
+		\draw (Fr.north west) -- (Og.north east);
+
+		\draw (Sc.north east) -- (AcLr.south east);
+		\draw (Ti.north east) -- (Rf.south east);
+		\draw (V.north east) -- (Db.south east);
+		\draw (Cr.north east) -- (Sg.south east);
+		\draw (Mn.north east) -- (Bh.south east);
+		\draw (Fe.north east) -- (Hs.south east);
+		\draw (Co.north east) -- (Mt.south east);
+		\draw (Ni.north east) -- (Ds.south east);
+		\draw (Cu.north east) -- (Rg.south east);
+		
+		\draw (B.north east) -- (Nh.south east);
+		\draw (C.north east) -- (Fl.south east);
+		\draw (N.north east) -- (Mc.south east);
+		\draw (O.north east) -- (Lv.south east);
+
+		\draw (La.north west) -- (Lu.north east) -- (Lr.south east) -- (Ac.south west) -- (La.north west) -- cycle;
+		\draw (La.south west) -- (Lu.south east);
+		
+		\draw (La.north east) -- (Ac.south east);
+		\draw (Ce.north east) -- (Th.south east);
+		\draw (Pr.north east) -- (Pa.south east);
+		\draw (Nd.north east) -- (U.south east);
+		\draw (Pm.north east) -- (Np.south east);
+		\draw (Sm.north east) -- (Pu.south east);
+		\draw (Eu.north east) -- (Am.south east);
+		\draw (Gd.north east) -- (Cm.south east);
+		\draw (Tb.north east) -- (Bk.south east);
+		\draw (Dy.north east) -- (Cf.south east);
+		\draw (Ho.north east) -- (Es.south east);
+		\draw (Er.north east) -- (Fm.south east);
+		\draw (Tm.north east) -- (Md.south east);
+		\draw (Yb.north east) -- (No.south east);
+	\end{scope}
+	
+	\node at (Blank2.west -| Fe.north) [name=diagramTitle, TitleLabel, align=center, yshift=0.8cm] {
+		\makebox[\widthof{Periodic Table of the Elements}][s]{元素周期表} \\
+		\phantom{}Periodic Table of the Elements\phantom{}
+	};
+\end{tikzpicture}
+\end{document}
