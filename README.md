@@ -1,8 +1,8 @@
 # LaTeX 简体中文元素周期表
 
-这可能是目前信息最详尽、排版最精致的、使用 LaTeX 排版的简体中文元素周期表。
+一张用 LaTeX 精心排版的简体中文元素周期表：信息完整、版式干净、打印友好。
 
-预览
+## 预览
 
 ![预览](Chinese-Periodic-Table.png)
 
@@ -11,29 +11,32 @@
 - 原子序数
 - 元素符号
 - 原子量
-- 拼音
-- 中文名
+- 中文名与拼音
 - 英文名
-- 电子排布简式
+- 电子排布（简式）
 
 ## 数据来源
 
-1. **原子量与英文名**：来源于 IUPAC 的最新[元素周期表](https://iupac.org/what-we-do/periodic-table-of-elements)。其中稳定元素和部分放射性元素的原子量保留四位有效数字。
+1. 原子量与元素名称：以国际纯粹与应用化学联合会（IUPAC）的最新数据为准。稳定元素及部分长寿命放射性元素的原子量一般保留四位有效数字。
+   - [Periodic Table of Elements - IUPAC | International Union of Pure and Applied Chemistry](https://iupac.org/what-we-do/periodic-table-of-elements/)
 
-2. **电子排布**：目前的排布数据是基于现有资料整理的，部分超重元素的电子排布仍属理论推测，尚未有实验定论。
+2. 电子排布：区分了实验确认与理论预测的数据来源。
+   - 元素 1-108：依据美国国家标准与技术研究院（NIST）原子光谱数据库的实验数据。
+     - [NIST: Atomic Spectra Database - Ionization Energies Form](https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html)
+   - 元素 109-118：采用当前主流的理论预测值，整理与校对参考了维基百科的数据页。
+     - [Electron configurations of the elements (data page) - Wikipedia](https://en.wikipedia.org/wiki/Electron_configurations_of_the_elements_(data_page))
 
-## 声明
+## 免责声明
 
-- 所有数据我没有进行逐一精细校对，可能产生错误。因此，**我不为表内数据的绝对准确性提供任何保证**。
-- 如发现任何错误，无论是数据还是排版问题，都非常欢迎指出和修改。
-- 排版和设计仍有改进空间，欢迎任何形式的贡献。
+我们尽可能核对并更新数据，但难免有疏漏或滞后。请仅将本项目用于学习与参考，不建议在对精度有严格要求的科研或生产环境中直接使用。  
+如果发现数据或排版问题，欢迎通过 Issue 或 Pull Request 指正，感谢你的帮助。
 
 ## 致谢
 
-这个项目的完成，必须感谢 [**文源字体**](https://github.com/takushun-wu/WenYuanFonts) 的开发者 takushun-wu。文源字体支持显示所有元素的中文名。编译前必须安装此字体。
+感谢 [文源字体](https://github.com/takushun-wu/WenYuanFonts) 的开发者 takushun-wu，字体覆盖了所有元素的中文名。编译前请先安装该字体。
 
-本项目受到了 [PaNDanese/periodic-table](https://github.com/PaNDanese/periodic-table) 的启发。本项目基于其早期版本的代码开发。在此，也对原作者 [Ivan Griffin](https://github.com/griffini) 和 [Paul Danese](https://github.com/PaNDanese) 的开创性工作表示感谢。
+本项目受到 [PaNDanese/periodic-table](https://github.com/PaNDanese/periodic-table) 的启发，并在早期基于其代码开发。感谢原作者 [Ivan Griffin](https://github.com/griffini) 和 [Paul Danese](https://github.com/PaNDanese) 的出色工作。
 
 ## 许可证
 
-本项目采用 `LaTeX Project Public License v1.3c` 许可证。
+本项目采用 LaTeX Project Public License v1.3c 许可证。
