@@ -17,7 +17,7 @@
 
 ## 数据来源
 
-1. 原子量与元素名称：以国际纯粹与应用化学联合会（IUPAC）的最新数据为准。稳定元素及部分长寿命放射性元素的原子量一般保留四位有效数字。
+1. 原子量与元素名称：以国际纯粹与应用化学联合会（IUPAC）的最新数据为准。稳定元素及部分长寿命放射性元素的原子量一般保留四位有效数字。唯一的例外是锂，其采用了 IUPAC 推荐的三位有效数字精度。
    - [Periodic Table of Elements - IUPAC | International Union of Pure and Applied Chemistry](https://iupac.org/what-we-do/periodic-table-of-elements/)
 
 2. 电子排布：区分了实验确认与理论预测的数据来源。
@@ -40,3 +40,4 @@
 ## 许可证
 
 本项目采用 LaTeX Project Public License v1.3c 许可证。
+
