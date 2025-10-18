@@ -4,7 +4,7 @@
 
 ## 预览
 
-![预览](Chinese-Periodic-Table.png)
+![预览](ctex-ptable.png)
 
 ## 特性
 
@@ -40,4 +40,5 @@
 ## 许可证
 
 本项目采用 LaTeX Project Public License v1.3c 许可证。
+
 
